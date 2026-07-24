@@ -22,7 +22,7 @@ themeBtn.addEventListener('click', () => {
 const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 10));
 
-// scroll spy — highlight active nav link
+// scroll spy - highlight active nav link
 const navLinks = document.querySelectorAll('.nav-links a');
 
 const spy = new IntersectionObserver((entries) => {
