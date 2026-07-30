@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -18,9 +18,13 @@
       <a href="#top" class="logo">nemisoft<span class="dot">.</span></a>
       <div class="nav-links">
         <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
         <a href="#netsuite">NetSuite</a>
         <a href="#odoo-detail">Odoo</a>
-        <a href="#process">Process</a>
+
+        <a href="#comparison">Why Us</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#faq">FAQ</a>
         <a href="about.html">About</a>
       </div>
       <div class="nav-right">
@@ -28,6 +32,7 @@
           <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
+        <button class="btn btn-ghost" id="openAuditNavBtn" style="border-color:var(--teal);color:var(--teal)">Free Audit</button>
         <a href="#contact" class="btn btn-primary">Contact</a>
       </div>
     </nav>
@@ -45,6 +50,7 @@
         <div class="hero-cta">
           <a href="#contact" class="btn btn-primary">Talk to an engineer</a>
           <a href="#services" class="btn btn-ghost">See what we do</a>
+          <button class="btn btn-ghost" id="heroAuditBtn" style="border-color:var(--teal);color:var(--teal)">Get Free Audit</button>
         </div>
         <div class="hero-meta">
           <div>Certified <span>NetSuite</span> developers</div>
@@ -141,13 +147,113 @@
   </div>
 </section>
 
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Industry Solutions</span>
+      <h2>Engineered for your vertical's unique complexities.</h2>
+      <p>Generic ERP configurations fail because no two industries operate alike. We build pre-configured modules for your exact operational requirements.</p>
+    </div>
+    <div class="ind-tabs-nav reveal">
+      <button class="ind-tab-btn active" data-tab="mfg">Manufacturing</button>
+      <button class="ind-tab-btn" data-tab="dist">Distribution &amp; 3PL</button>
+      <button class="ind-tab-btn" data-tab="retail">E-Commerce &amp; Retail</button>
+      <button class="ind-tab-btn" data-tab="fintech">Fintech &amp; Services</button>
+    </div>
+    <div class="ind-content-wrap">
+      <div class="ind-panel active" id="ind-mfg">
+        <div class="ind-grid">
+          <div class="ind-card reveal">
+            <div class="ind-icon">🏭</div>
+            <h3>Multi-Level Bill of Materials (BOM)</h3>
+            <p>Accurate parent-child assembly tracking, sub-component routing, and automated scrap rate calculation in NetSuite &amp; Odoo MRP.</p>
+          </div>
+          <div class="ind-card reveal">
+            <div class="ind-icon">⚙️</div>
+            <h3>Shop-Floor Work Center WIP</h3>
+            <p>Real-time machine and labor tracking with direct tablet/barcode entry for immediate work order variance analysis.</p>
+          </div>
+          <div class="ind-card reveal">
+            <div class="ind-icon">📦</div>
+            <h3>Automated Demand &amp; Reorder MRP</h3>
+            <p>Algorithmic safety stock calculation and automated purchase order generation based on lead-time forecasting.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ind-panel" id="ind-dist">
+        <div class="ind-grid">
+          <div class="ind-card">
+            <div class="ind-icon">🚛</div>
+            <h3>Multi-Warehouse Bin Allocation</h3>
+            <p>Intelligent inventory placement, automated wave picking, and cross-docking rules across regional fulfillment hubs.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">⚡</div>
+            <h3>3PL &amp; Carrier API Integrations</h3>
+            <p>Real-time shipping rate calculation, manifest generation, and tracking sync with FedEx, DHL, UPS, and local fleets.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">📊</div>
+            <h3>Backorder &amp; Priority Rules</h3>
+            <p>Automated customer priority rules to fulfill backorders instantly when stock lands at receiving docks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ind-panel" id="ind-retail">
+        <div class="ind-grid">
+          <div class="ind-card">
+            <div class="ind-icon">🛒</div>
+            <h3>2-Way Storefront Sync</h3>
+            <p>Sub-second inventory &amp; order sync between NetSuite/Odoo and Shopify Plus, BigCommerce, or Magento.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">💳</div>
+            <h3>Automated Payment Reconciliation</h3>
+            <p>Instant matching for Stripe, PayPal, Razorpay, and credit card gateway payouts against bank settlements.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">🏛️</div>
+            <h3>Localized Tax &amp; GST Compliance</h3>
+            <p>Automated e-way bill generation, multi-state GST filing, and VAT compliance built into invoice workflows.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ind-panel" id="ind-fintech">
+        <div class="ind-grid">
+          <div class="ind-card">
+            <div class="ind-icon">🏢</div>
+            <h3>Multi-Subsidiary Elimination</h3>
+            <p>Automated intercompany journal entries, multi-currency consolidation, and automated FX gain/loss accounting.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">📈</div>
+            <h3>Revenue Recognition (ASC 606)</h3>
+            <p>Configurable revenue schedules for SaaS subscriptions, milestone billing, and deferred revenue schedules.</p>
+          </div>
+          <div class="ind-card">
+            <div class="ind-icon">💼</div>
+            <h3>Project Profitability &amp; Time</h3>
+            <p>Real-time billable hour utilization metrics, role-based margin tracking, and automated client invoicing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NETSUITE DETAIL -->
 <section class="ns" id="netsuite">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">NetSuite</span>
-      <h2>You picked the right ERP. We help you get everything out of it.</h2>
-      <p>Choosing NetSuite already put you ahead. Our job is to make it fit your business - and take the system-level headaches off your plate so you can focus on the work that matters.</p>
+    <div class="why-head">
+      <div class="sec-head reveal">
+        <span class="eyebrow">NetSuite</span>
+        <h2>You picked the right ERP. We help you get everything out of it.</h2>
+        <p>Choosing NetSuite already put you ahead. Our job is to make it fit your business - and take the system-level headaches off your plate so you can focus on the work that matters.</p>
+      </div>
+      <div class="why-photo reveal">
+        <img src="netsuite_dashboard.png" alt="NetSuite ERP analytics dashboard visual">
+      </div>
     </div>
     <div class="ns-grid">
       <div class="ns-item reveal"><h3>Custom Development</h3><p>Scripts, workflows, and customizations built on NetSuite best practices - designed to be configurable, so your team can make small changes without calling us back.</p></div>
@@ -218,6 +324,118 @@
       <div class="why reveal"><h3><span class="ic">{ }</span>Engineers, not generalists</h3><p>Technical architects, integration specialists, and customization experts who work in code every day - not account managers reading from a script.</p></div>
       <div class="why reveal"><h3><span class="ic">⇄</span>We connect anything</h3><p>Salesforce, GoCardless, ADP, BigCommerce, MailChimp, Indian banks - if two systems need to talk, we've likely already done it.</p></div>
       <div class="why reveal"><h3><span class="ic">◇</span>Built to hand back</h3><p>Customizations designed to be configurable, so you're never locked into us for every minor change. That's a feature, not a bug.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- COMPARISON MATRIX -->
+<section id="comparison">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;max-width:100%">
+      <span class="eyebrow">Why nemisoft</span>
+      <h2>How We Compare to Other Consultancies</h2>
+      <p style="margin:16px auto 0;max-width:640px">Most ERP partners lock you into proprietary scripts or pass your project to junior reps. Here's why leading mid-market businesses choose us.</p>
+    </div>
+    <div class="comp-table-wrap reveal">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Key Capability</th>
+            <th>Traditional ERP Partners</th>
+            <th>Offshore Coding Agencies</th>
+            <th class="highlight">nemisoft.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Engineering Team</strong></td>
+            <td>Account managers &amp; sales reps</td>
+            <td>Junior generalist coders</td>
+            <td class="highlight"><strong>Certified Senior ERP &amp; AWS Architects</strong></td>
+          </tr>
+          <tr>
+            <td><strong>System Architecture</strong></td>
+            <td>Monolithic &amp; rigid vendor lock-in</td>
+            <td>Ad-hoc brittle scripts</td>
+            <td class="highlight"><strong>Clean, Configurable, Modular Code</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Code Ownership</strong></td>
+            <td>Proprietary black-box blackouts</td>
+            <td>Undocumented, hard-to-maintain</td>
+            <td class="highlight"><strong>100% Client Code Ownership &amp; Docs</strong></td>
+          </tr>
+          <tr>
+            <td><strong>ERP Specialization</strong></td>
+            <td>NetSuite ONLY or Odoo ONLY</td>
+            <td>Surface-level web dev</td>
+            <td class="highlight"><strong>Certified NetSuite + Official Odoo Partner</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Cloud Infrastructure</strong></td>
+            <td>Outsourced or 3rd-party SaaS fee</td>
+            <td>No cloud architecture capability</td>
+            <td class="highlight"><strong>In-House AWS Solutions Architects</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Delivery Guarantee</strong></td>
+            <td>Unpredictable scope creep &amp; delays</td>
+            <td>High staff turnover &amp; re-work</td>
+            <td class="highlight"><strong>Fixed-Scope Milestones &amp; On-Time Delivery</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem" class="ns">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Connected Stack</span>
+      <h2>Integrate NetSuite &amp; Odoo with Every Tool You Run</h2>
+      <p>No isolated data silos. We build reliable, real-time bidirectional pipelines using SuiteScript, Odoo APIs, Celigo, Boomi, or custom AWS Serverless infrastructure.</p>
+    </div>
+    <div class="eco-filters reveal">
+      <button class="eco-btn active" data-eco="all">All Integrations</button>
+      <button class="eco-btn" data-eco="crm">CRM &amp; Sales</button>
+      <button class="eco-btn" data-eco="payments">Payments &amp; Finance</button>
+      <button class="eco-btn" data-eco="commerce">E-Commerce</button>
+      <button class="eco-btn" data-eco="cloud">Cloud &amp; Middleware</button>
+    </div>
+    <div class="eco-grid reveal">
+      <div class="eco-card" data-cat="crm">
+        <div class="eco-badge">CRM</div>
+        <h3>Salesforce</h3>
+        <p>Real-time customer, opportunity, and quote-to-cash sync with NetSuite &amp; Odoo.</p>
+      </div>
+      <div class="eco-card" data-cat="commerce">
+        <div class="eco-badge">E-Commerce</div>
+        <h3>Shopify Plus</h3>
+        <p>Automated order ingestion, inventory level allocation, and fulfillment updates.</p>
+      </div>
+      <div class="eco-card" data-cat="payments">
+        <div class="eco-badge">Payments</div>
+        <h3>Stripe &amp; PayPal</h3>
+        <p>Instant deposit reconciliation, automated customer ledger postings, and refund sync.</p>
+      </div>
+      <div class="eco-card" data-cat="cloud">
+        <div class="eco-badge">Middleware</div>
+        <h3>Celigo &amp; Dell Boomi</h3>
+        <p>Certified iPaaS flow design, error monitoring dashboards, and payload optimization.</p>
+      </div>
+      <div class="eco-card" data-cat="payments">
+        <div class="eco-badge">Payroll</div>
+        <h3>ADP &amp; Workday</h3>
+        <p>Automated payroll journal entry posting, tax withholdings, and employee master sync.</p>
+      </div>
+      <div class="eco-card" data-cat="cloud">
+        <div class="eco-badge">AWS Cloud</div>
+        <h3>AWS Lambda &amp; S3</h3>
+        <p>Serverless event-driven data pipelines for enterprise multi-system orchestration.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -356,6 +574,38 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal" style="text-align:center;max-width:100%">
+      <span class="eyebrow">Got questions?</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-accordion reveal">
+      <div class="faq-item">
+        <button class="faq-q">How long does a NetSuite or Odoo implementation take?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Typical mid-market implementations take between 6 to 12 weeks depending on scope, data migration complexity, and custom modules. Single integrations or SuiteScript enhancements are routinely shipped in 1 to 3 weeks.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Will custom SuiteScripts or Odoo modules break during system upgrades?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>No. We build strictly adhering to Oracle NetSuite SuiteScript 2.1 best practices and Odoo modular architecture guidelines. Customizations are decoupled from core updates so major releases never break your business logic.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can you integrate our custom internal software or proprietary database?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Yes. As AWS Certified Solution Architects, we build custom REST/GraphQL connectors, webhooks, and serverless pipelines (AWS Lambda/API Gateway) to bridge any proprietary system directly into NetSuite or Odoo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What engagement and pricing models do you offer?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We offer both Fixed-Price Milestone Contracts for defined implementations/integrations and Dedicated Engineer Retainers for ongoing admin, development, and support. No hidden fees or surprise invoices.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How do you ensure zero data loss during data migration?<span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We run a multi-stage migration protocol: full schema mapping, dry-run sandbox testing, automated data reconciliation scripts, and dual-system verification before final cutover.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-final" id="contact">
   <div class="wrap reveal">
@@ -429,5 +679,40 @@
 </footer>
 
 <script src="script.js"></script>
+
+<!-- AUDIT MODAL -->
+<div class="modal-overlay" id="auditModal">
+  <div class="modal-card">
+    <button class="modal-close" id="closeAuditModal" aria-label="Close modal">&times;</button>
+    <div class="modal-head">
+      <span class="eyebrow">Free Technical Review</span>
+      <h3>Claim Your Free 20-Point ERP &amp; Integration Health Audit</h3>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px">Our senior engineers will inspect your NetSuite/Odoo setup, security roles, API bottlenecks, and cost optimization opportunities.</p>
+    </div>
+    <form class="modal-form" id="auditForm" onsubmit="return false">
+      <div class="form-row">
+        <input type="text" id="auditName" placeholder="Your Name *" required>
+        <input type="email" id="auditEmail" placeholder="Work Email *" required>
+      </div>
+      <div class="form-row">
+        <input type="text" id="auditCompany" placeholder="Company Name *" required>
+        <select id="auditERP">
+          <option value="NetSuite">Current System: NetSuite</option>
+          <option value="Odoo">Current System: Odoo</option>
+          <option value="Moving to ERP">Planning New ERP Implementation</option>
+          <option value="Other">Other / Spreadsheets</option>
+        </select>
+      </div>
+      <textarea id="auditNotes" rows="3" placeholder="Tell us about your current challenge or goal (e.g. slow month-end, Shopify sync issue)..."></textarea>
+      <button type="submit" class="btn btn-primary" style="margin-top:10px;width:100%">Submit Audit Request</button>
+      <p class="modal-privacy">🔒 100% confidential. No spam. Direct response from a senior engineer within 24 hours.</p>
+    </form>
+    <div class="modal-success" id="auditSuccess" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:40px;margin-bottom:10px">✅</div>
+      <h3>Audit Request Received!</h3>
+      <p style="color:var(--muted);margin-top:8px">Thank you! A senior nemisoft ERP engineer will review your details and reach out to your work email within 24 hours.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>

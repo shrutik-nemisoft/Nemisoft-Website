@@ -34,7 +34,7 @@ const spy = new IntersectionObserver((entries) => {
   });
 }, { rootMargin: '-15% 0px -75% 0px' });
 
-['services', 'netsuite', 'odoo-detail', 'process'].forEach(id => {
+['services', 'industries', 'netsuite', 'odoo-detail', 'comparison', 'ecosystem', 'faq'].forEach(id => {
   const el = document.getElementById(id);
   if (el) spy.observe(el);
 });
@@ -101,12 +101,16 @@ const spy = new IntersectionObserver((entries) => {
   function startTimer() { timer = setInterval(() => goTo(page + 1), 4000); }
   function resetTimer() { clearInterval(timer); startTimer(); }
 
-  document.querySelector('.testi-prev').addEventListener('click', () => { goTo(page - 1); resetTimer(); });
-  document.querySelector('.testi-next').addEventListener('click', () => { goTo(page + 1); resetTimer(); });
+  const prevBtn = document.querySelector('.testi-prev');
+  const nextBtn = document.querySelector('.testi-next');
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(page - 1); resetTimer(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(page + 1); resetTimer(); });
 
   const outer = document.querySelector('.testi-outer');
-  outer.addEventListener('mouseenter', () => clearInterval(timer));
-  outer.addEventListener('mouseleave', startTimer);
+  if (outer) {
+    outer.addEventListener('mouseenter', () => clearInterval(timer));
+    outer.addEventListener('mouseleave', startTimer);
+  }
 
   window.addEventListener('resize', () => { buildDots(); goTo(0); });
 
@@ -128,3 +132,97 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
   el.style.transitionDelay = (i % 4) * 60 + 'ms';
   io.observe(el);
 });
+
+// ---------- INDUSTRY TABS ----------
+(function(){
+  const tabBtns = document.querySelectorAll('.ind-tab-btn');
+  const panels = document.querySelectorAll('.ind-panel');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const target = document.getElementById('ind-' + btn.dataset.tab);
+      if (target) target.classList.add('active');
+    });
+  });
+})();
+
+
+
+// ---------- ECOSYSTEM FILTER ----------
+(function(){
+  const ecoBtns = document.querySelectorAll('.eco-btn');
+  const ecoCards = document.querySelectorAll('.eco-card');
+  ecoBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      ecoBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.eco;
+      ecoCards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+
+// ---------- FAQ ACCORDION ----------
+(function(){
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('active');
+      items.forEach(i => i.classList.remove('active'));
+      if (!isOpen) item.classList.add('active');
+    });
+  });
+})();
+
+// ---------- AUDIT MODAL LOGIC ----------
+(function(){
+  const modal = document.getElementById('auditModal');
+  const openBtns = [
+    document.getElementById('openAuditNavBtn'),
+    document.getElementById('heroAuditBtn')
+  ];
+  const closeBtn = document.getElementById('closeAuditModal');
+  const form = document.getElementById('auditForm');
+  const successMsg = document.getElementById('auditSuccess');
+
+  if (!modal) return;
+
+  function openModal() {
+    modal.classList.add('open');
+    if (form) form.style.display = 'flex';
+    if (successMsg) successMsg.style.display = 'none';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+  }
+
+  openBtns.forEach(btn => {
+    if (btn) btn.addEventListener('click', openModal);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      if (successMsg) successMsg.style.display = 'block';
+      setTimeout(closeModal, 4000);
+    });
+  }
+})();
