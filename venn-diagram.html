@@ -1,0 +1,139 @@
+<!-- ============================================================
+     Orbiting Dots Venn Diagram
+     Self-contained snippet - drop this block anywhere in a page.
+     Re-theme by overriding the --venn-* custom properties on
+     .venn-wrap (or a parent selector).
+     ============================================================ -->
+<div class="venn-wrap">
+  <svg class="venn-svg" viewBox="0 0 500 480" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Venn diagram of Consulting, Talent Solutions and Managed Services">
+    <defs>
+      <radialGradient id="vennGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="var(--venn-glow-color)" stop-opacity="0.55" />
+        <stop offset="100%" stop-color="var(--venn-glow-color)" stop-opacity="0" />
+      </radialGradient>
+      <filter id="vennBadgeShadow" x="-60%" y="-60%" width="220%" height="220%">
+        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.35" />
+      </filter>
+    </defs>
+
+    <!-- circles -->
+    <circle class="venn-circle venn-circle--consulting" cx="250" cy="160" r="130" />
+    <circle class="venn-circle venn-circle--talent" cx="155" cy="320" r="130" />
+    <circle class="venn-circle venn-circle--managed" cx="345" cy="320" r="130" />
+
+    <!-- labels -->
+    <text class="venn-label" x="250" y="115" text-anchor="middle">Consulting</text>
+
+    <text class="venn-label" x="95" y="372" text-anchor="middle">
+      <tspan x="95" dy="0">Talent</tspan>
+      <tspan x="95" dy="1.15em">Solutions</tspan>
+    </text>
+
+    <text class="venn-label" x="405" y="372" text-anchor="middle">
+      <tspan x="405" dy="0">Managed</tspan>
+      <tspan x="405" dy="1.15em">Services</tspan>
+    </text>
+
+    <!-- orbiting dots, one per circle, same colour as that circle's stroke -->
+    <circle class="venn-dot venn-dot--consulting" r="6">
+      <animateMotion dur="8s" begin="0s" repeatCount="indefinite"
+        path="M 380,160 A 130,130 0 1,1 120,160 A 130,130 0 1,1 380,160" />
+    </circle>
+
+    <circle class="venn-dot venn-dot--talent" r="6">
+      <animateMotion dur="8s" begin="-2.667s" repeatCount="indefinite"
+        path="M 285,320 A 130,130 0 1,1 25,320 A 130,130 0 1,1 285,320" />
+    </circle>
+
+    <circle class="venn-dot venn-dot--managed" r="6">
+      <animateMotion dur="8s" begin="-5.333s" repeatCount="indefinite"
+        path="M 475,320 A 130,130 0 1,1 215,320 A 130,130 0 1,1 475,320" />
+    </circle>
+
+    <!-- soft glow behind the centre badge -->
+    <circle class="venn-glow" cx="250" cy="265" r="78" fill="url(#vennGlow)" />
+
+    <!-- static centre badge, always on top -->
+    <g class="venn-badge" transform="translate(250,265)" filter="url(#vennBadgeShadow)">
+      <circle class="venn-badge-circle" r="27" />
+      <g class="venn-badge-icon">
+        <circle cx="0" cy="-7.5" r="3.2" />
+        <circle cx="-6.7" cy="4.5" r="3.2" />
+        <circle cx="6.7" cy="4.5" r="3.2" />
+      </g>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .venn-wrap {
+    /* ---- re-themeable colours ---- */
+    --venn-consulting-color: #0b2545;
+    --venn-talent-color: #ff7a45;
+    --venn-managed-color: #6ec6f1;
+    --venn-label-color: #0b2545;
+    --venn-badge-color: #0a1a33;
+    --venn-glow-color: #ffffff;
+    --venn-stroke-width: 1.5;
+
+    width: 100%;
+    max-width: 520px;
+    min-width: 220px;
+    margin: 0 auto;
+  }
+
+  .venn-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: transparent;
+    overflow: visible;
+  }
+
+  .venn-circle {
+    fill: none;
+    stroke-width: var(--venn-stroke-width);
+  }
+  .venn-circle--consulting { stroke: var(--venn-consulting-color); }
+  .venn-circle--talent     { stroke: var(--venn-talent-color); }
+  .venn-circle--managed    { stroke: var(--venn-managed-color); }
+
+  .venn-label {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    fill: var(--venn-label-color);
+  }
+
+  .venn-dot--consulting { fill: var(--venn-consulting-color); }
+  .venn-dot--talent      { fill: var(--venn-talent-color); }
+  .venn-dot--managed     { fill: var(--venn-managed-color); }
+
+  .venn-glow {
+    pointer-events: none;
+  }
+
+  .venn-badge-circle {
+    fill: var(--venn-badge-color);
+  }
+  .venn-badge-icon circle {
+    fill: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    .venn-label { font-size: 18px; }
+  }
+</style>
+
+<script>
+  // Respect reduced-motion preference: freeze the dots on their starting position.
+  (function () {
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('.venn-svg animateMotion').forEach(function (anim) {
+        anim.setAttribute('repeatCount', '1');
+        anim.setAttribute('dur', '0.001s');
+      });
+    }
+  })();
+</script>

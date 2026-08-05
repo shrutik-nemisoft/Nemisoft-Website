@@ -22,6 +22,24 @@ themeBtn.addEventListener('click', () => {
 const hdr = document.getElementById('hdr');
 addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 10));
 
+// mobile nav toggle
+(function(){
+  const navToggle = document.getElementById('navToggle');
+  const navLinksEl = document.querySelector('.nav-links');
+  if (!navToggle || !navLinksEl) return;
+
+  function setOpen(open) {
+    navLinksEl.classList.toggle('open', open);
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('nav-open', open);
+  }
+
+  navToggle.addEventListener('click', () => setOpen(!navLinksEl.classList.contains('open')));
+  navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+})();
+
 // scroll spy - highlight active nav link
 const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -225,4 +243,14 @@ document.querySelectorAll('.reveal').forEach((el, i) => {
       setTimeout(closeModal, 4000);
     });
   }
+})();
+
+// freeze venn diagram dots for reduced-motion users
+(function(){
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let motions = document.querySelectorAll('.venn-svg animateMotion');
+  motions.forEach(motion => {
+    motion.setAttribute('repeatCount', '1');
+    motion.setAttribute('dur', '0.001s');
+  });
 })();
