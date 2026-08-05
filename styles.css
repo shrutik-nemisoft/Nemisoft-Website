@@ -520,6 +520,7 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:72px 0 0
   .hero-grid,.why-head,.about-story-grid{grid-template-columns:1fr;gap:36px}
   .svc-grid,.ns-grid{grid-template-columns:1fr}
   .proc,.why-grid,.values-grid,.footer-main,.team-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-main>div:first-child,.footer-main>div:last-child{grid-column:1/-1}
   .testi-card{flex:0 0 calc(100% - 12px)}
 }
 @media(max-width:680px){
@@ -527,8 +528,8 @@ footer{border-top:1px solid var(--line);background:var(--ink-2);padding:72px 0 0
   .hero{padding:64px 0 48px}
   section{padding:64px 0}
   .sec-head{margin-bottom:38px}
-  .proc,.stats-grid,.why-grid,.values-grid,.footer-main,.team-grid{grid-template-columns:1fr}
-  .footer-main{gap:36px}
+  .proc,.stats-grid,.why-grid,.values-grid,.team-grid{grid-template-columns:1fr}
+  .footer-main{gap:28px 20px}
   .partner-logos{align-items:flex-start}
   .pl-ns-img,.pl-logo-img,.pl-odoo-img{width:150px;height:52px}
 }
